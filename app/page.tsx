@@ -222,9 +222,9 @@ export default function PlaygroundPage() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://img.shields.io/github/stars/crafter-station/meta.playground?style=flat&color=191919&labelColor=191919&logo=github&logoColor=white"
+              src="https://img.shields.io/github/stars/crafter-station/meta.playground?style=flat&logo=github"
               alt="GitHub stars"
-              className="h-6 opacity-40 hover:opacity-100 transition-opacity"
+              className="h-6 opacity-70 hover:opacity-100 transition-opacity dark:invert"
             />
           </a>
         </div>
