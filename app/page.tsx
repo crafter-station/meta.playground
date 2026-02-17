@@ -216,13 +216,13 @@ export default function PlaygroundPage() {
             <CrafterStationLogo className="w-8 h-8" />
           </a>
           <a
-            href="https://github.com/crafter-station/metadata-playground"
+            href="https://github.com/crafter-station/meta.playground"
             target="_blank"
             rel="noopener noreferrer"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="https://img.shields.io/github/stars/crafter-station/metadata-playground?style=flat&color=191919&labelColor=191919&logo=github&logoColor=white"
+              src="https://img.shields.io/github/stars/crafter-station/meta.playground?style=flat&color=191919&labelColor=191919&logo=github&logoColor=white"
               alt="GitHub stars"
               className="h-6 opacity-40 hover:opacity-100 transition-opacity"
             />
