@@ -203,17 +203,17 @@ export default function PlaygroundPage() {
       : 0;
 
   return (
-    <main className="min-h-screen px-4 py-12 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <main className="min-h-screen px-4 py-16 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header */}
-      <header className="mb-12 text-center">
-        <div className="flex items-center justify-center gap-4 mb-4">
+      <header className="mb-16 text-left max-w-2xl">
+        <div className="flex items-center gap-4 mb-8">
           <a
             href="https://github.com/crafter-station"
             target="_blank"
             rel="noopener noreferrer"
             className="text-muted-foreground/60 hover:text-[#F8BC31] transition-colors"
           >
-            <CrafterStationLogo className="w-8 h-8" />
+            <CrafterStationLogo className="w-7 h-7" />
           </a>
           <a
             href="https://github.com/crafter-station/meta.playground"
@@ -224,14 +224,14 @@ export default function PlaygroundPage() {
             <img
               src="https://img.shields.io/github/stars/crafter-station/meta.playground?style=flat&logo=github"
               alt="GitHub stars"
-              className="h-6 opacity-70 hover:opacity-100 transition-opacity dark:invert"
+              className="h-5 opacity-60 hover:opacity-100 transition-opacity invert"
             />
           </a>
         </div>
-        <h1 className="text-3xl sm:text-4xl font-light tracking-tight mb-2">
-          Metadata Playground
+        <h1 className="text-5xl sm:text-7xl font-black tracking-tighter mb-4 leading-[0.9]">
+          Meta<br />Playground
         </h1>
-        <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+        <p className="text-muted-foreground text-sm max-w-md leading-relaxed">
           Upload an image, select AI models, and compare the metadata each one
           extracts — including cost projections at scale.
         </p>
@@ -241,7 +241,7 @@ export default function PlaygroundPage() {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-8">
         {/* Upload Zone */}
         <div className="lg:col-span-2">
-          <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-3 block">
+          <label className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground mb-3 block">
             Image
           </label>
 
@@ -256,24 +256,24 @@ export default function PlaygroundPage() {
               onClick={() => fileInputRef.current?.click()}
               className={`
                 relative flex flex-col items-center justify-center
-                h-64 border-2 border-dashed cursor-pointer
+                h-64 border border-dashed cursor-pointer
                 transition-all duration-200
                 ${
                   isDragging
-                    ? "border-foreground/30 bg-accent"
-                    : "border-border hover:border-foreground/20 hover:bg-accent/50"
+                    ? "border-foreground/20 bg-accent"
+                    : "border-border hover:border-foreground/15 hover:bg-accent/50"
                 }
               `}
             >
               <Upload
-                className="w-8 h-8 text-muted-foreground mb-3"
-                strokeWidth={1.5}
+                className="w-6 h-6 text-muted-foreground/40 mb-3"
+                strokeWidth={1}
               />
-              <p className="text-sm text-muted-foreground">
+              <p className="text-xs text-muted-foreground">
                 Drop an image here or{" "}
                 <span className="underline underline-offset-2">browse</span>
               </p>
-              <p className="text-xs text-muted-foreground/60 mt-1">
+              <p className="text-[10px] text-muted-foreground/40 mt-1">
                 PNG, JPG, WebP up to 10MB
               </p>
               <input
@@ -288,7 +288,7 @@ export default function PlaygroundPage() {
               />
             </div>
           ) : (
-            <div className="relative h-64 overflow-hidden border border-border bg-muted">
+            <div className="relative h-64 overflow-hidden border border-border bg-muted/50">
               <Image
                 src={preview}
                 alt="Uploaded image"
@@ -300,12 +300,12 @@ export default function PlaygroundPage() {
                 onClick={clearFile}
                 className="absolute top-3 right-3 p-1.5 bg-background/80 backdrop-blur-sm border border-border hover:bg-background transition-colors"
               >
-                <X className="w-4 h-4" />
+                <X className="w-3.5 h-3.5" />
               </button>
               <div className="absolute bottom-3 left-3 right-3">
-                <div className="px-3 py-1.5 bg-background/80 backdrop-blur-sm border border-border text-xs font-mono text-muted-foreground truncate">
+                <div className="px-3 py-1.5 bg-background/80 backdrop-blur-sm border border-border text-[10px] font-mono text-muted-foreground truncate">
                   {file.name}{" "}
-                  <span className="text-muted-foreground/60">
+                  <span className="text-muted-foreground/50">
                     ({(file.size / 1024).toFixed(0)} KB)
                   </span>
                 </div>
@@ -317,7 +317,7 @@ export default function PlaygroundPage() {
         {/* Model Selector */}
         <div className="lg:col-span-3">
           <div className="flex items-center justify-between mb-3">
-            <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <label className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               Models
             </label>
             <button
@@ -401,7 +401,7 @@ export default function PlaygroundPage() {
       {/* Prompt */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-3">
-          <label className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+          <label className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
             Prompt
           </label>
           {prompt !== DEFAULT_PROMPT && (
@@ -418,25 +418,25 @@ export default function PlaygroundPage() {
           value={prompt}
           onChange={(e) => setPrompt(e.target.value)}
           rows={3}
-          className="w-full border border-border bg-card px-4 py-3 text-sm leading-relaxed text-card-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:ring-1 focus:ring-foreground/20 resize-y font-mono"
+          className="w-full border border-border bg-card px-4 py-3 text-xs leading-relaxed text-card-foreground placeholder:text-muted-foreground/30 focus:outline-none focus:border-foreground/15 resize-y font-mono"
           placeholder="Describe what metadata to extract from the image..."
         />
       </div>
 
       {/* Extract Button */}
-      <div className="mb-12">
+      <div className="mb-16">
         <button
           onClick={extractAll}
           disabled={!file || selectedModels.size === 0 || isExtracting}
           className={`
-            w-full py-3 px-6 text-sm font-medium
+            w-full py-3.5 px-6 text-xs font-semibold uppercase tracking-[0.15em]
             transition-all duration-200 flex items-center justify-center gap-2
             ${
               !file || selectedModels.size === 0
-                ? "bg-muted text-muted-foreground cursor-not-allowed"
+                ? "bg-muted text-muted-foreground/50 cursor-not-allowed"
                 : isExtracting
                   ? "bg-foreground/90 text-background cursor-wait"
-                  : "bg-foreground text-background hover:bg-foreground/90 active:scale-[0.99]"
+                  : "bg-foreground text-background hover:bg-foreground/85 active:scale-[0.99]"
             }
           `}
         >
@@ -460,7 +460,7 @@ export default function PlaygroundPage() {
       {/* Results */}
       {Object.keys(extractions).length > 0 && (
         <section className="mb-12 animate-fade-in">
-          <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground mb-4">
+          <h2 className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground mb-4">
             Results
           </h2>
 
@@ -631,7 +631,7 @@ export default function PlaygroundPage() {
                                 {state.result.metadata.emotions.map((e) => (
                                   <span
                                     key={e}
-                                    className="px-2 py-0.5 text-[10px] bg-purple-500/10 text-purple-700 dark:text-purple-300"
+                                    className="px-2 py-0.5 text-[10px] bg-emerald-500/10 text-emerald-400"
                                   >
                                     {e}
                                   </span>
@@ -698,7 +698,7 @@ export default function PlaygroundPage() {
                           <span
                             className={
                               isFastest
-                                ? "text-emerald-600 dark:text-emerald-400"
+                                ? "text-emerald-400"
                                 : ""
                             }
                           >
@@ -712,7 +712,7 @@ export default function PlaygroundPage() {
                           <span
                             className={`ml-auto ${
                               isCheapest
-                                ? "text-emerald-600 dark:text-emerald-400 font-semibold"
+                                ? "text-emerald-400 font-semibold"
                                 : ""
                             }`}
                           >
@@ -757,8 +757,8 @@ export default function PlaygroundPage() {
       {completedResults.length > 0 && (
         <section className="animate-fade-in">
           <div className="flex items-center gap-2 mb-4">
-            <Calculator className="w-4 h-4 text-muted-foreground" />
-            <h2 className="text-xs font-medium uppercase tracking-wider text-muted-foreground">
+            <Calculator className="w-3.5 h-3.5 text-muted-foreground/60" />
+            <h2 className="text-[10px] font-medium uppercase tracking-[0.2em] text-muted-foreground">
               Cost Projection
             </h2>
           </div>
@@ -767,13 +767,13 @@ export default function PlaygroundPage() {
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-border">
-                  <th className="text-left px-4 py-3 text-xs font-medium text-muted-foreground uppercase tracking-wider">
+                  <th className="text-left px-4 py-3 text-[10px] font-medium text-muted-foreground uppercase tracking-[0.2em]">
                     Model
                   </th>
                   {VOLUME_TIERS.map((vol) => (
                     <th
                       key={vol}
-                      className="text-right px-4 py-3 text-xs font-medium text-muted-foreground uppercase tracking-wider whitespace-nowrap"
+                      className="text-right px-4 py-3 text-[10px] font-medium text-muted-foreground uppercase tracking-[0.2em] whitespace-nowrap"
                     >
                       {vol === 1 ? "1 img" : `${formatNumber(vol)} imgs`}
                     </th>
@@ -808,7 +808,7 @@ export default function PlaygroundPage() {
                               {model.name}
                             </span>
                             {isCheapestRow && (
-                              <span className="text-[10px] px-1.5 py-0.5 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 whitespace-nowrap">
+                              <span className="text-[10px] px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 whitespace-nowrap">
                                 cheapest
                               </span>
                             )}
@@ -838,20 +838,20 @@ export default function PlaygroundPage() {
 
       {/* Empty State */}
       {Object.keys(extractions).length === 0 && !file && (
-        <div className="flex flex-col items-center justify-center py-20 text-center">
+        <div className="flex flex-col items-center justify-center py-24 text-center">
           <ImageIcon
-            className="w-12 h-12 text-muted-foreground/30 mb-4"
+            className="w-10 h-10 text-muted-foreground/20 mb-4"
             strokeWidth={1}
           />
-          <p className="text-sm text-muted-foreground">
+          <p className="text-xs text-muted-foreground/60">
             Upload an image to get started
           </p>
         </div>
       )}
 
       {/* Footer */}
-      <footer className="mt-16 pb-8 text-center">
-        <p className="text-[10px] text-muted-foreground/40">
+      <footer className="mt-20 pb-8 text-center">
+        <p className="text-[10px] text-muted-foreground/30 tracking-wide">
           Built with Vercel AI SDK · Costs are estimates based on published
           pricing
         </p>
